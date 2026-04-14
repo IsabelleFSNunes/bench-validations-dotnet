@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
 using FluentValidation.Validators;
-using social_media_api_mvc_dotnet10.DTOs;
+using social_media_api_fluentvalidation_dotnet10.DTOs;
 
-namespace social_media_api_mvc_dotnet10.Validators
+namespace social_media_api_fluentvalidation_dotnet10.Validators
 {
     public class CreatePostValidator : AbstractValidator<CreatePostDto>
     {

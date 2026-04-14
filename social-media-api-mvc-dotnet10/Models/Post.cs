@@ -1,4 +1,4 @@
-﻿namespace social_media_api_mvc_dotnet10.Models
+﻿namespace social_media_api_fluentvalidation_dotnet10.Models
 {
     public class Post
     {

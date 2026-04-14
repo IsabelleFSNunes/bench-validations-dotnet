@@ -1,7 +1,7 @@
 using FluentValidation;
 using Scalar.AspNetCore;
-using social_media_api_mvc_dotnet10.Repository;
-using social_media_api_mvc_dotnet10.Services;
+using social_media_api_fluentvalidation_dotnet10.Repository;
+using social_media_api_fluentvalidation_dotnet10.Services;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,6 +1,6 @@
-﻿using social_media_api_mvc_dotnet10.Models;
+﻿using social_media_api_fluentvalidation_dotnet10.Models;
 
-namespace social_media_api_mvc_dotnet10.Services
+namespace social_media_api_fluentvalidation_dotnet10.Services
 {
     public class PostServices(HttpClient httpClient)
     {

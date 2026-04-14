@@ -1,6 +1,6 @@
-﻿using social_media_api_mvc_dotnet10.Models;
+﻿using social_media_api_fluentvalidation_dotnet10.Models;
 
-namespace social_media_api_mvc_dotnet10.Repository
+namespace social_media_api_fluentvalidation_dotnet10.Repository
 {
     public class PostRepository
     {
