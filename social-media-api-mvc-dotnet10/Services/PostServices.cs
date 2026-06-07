@@ -2,7 +2,7 @@
 
 namespace social_media_api_fluentvalidation_dotnet10.Services
 {
-    public class PostServices(HttpClient httpClient)
+    public class PostServices(HttpClient httpClient) : IPostServices
     {
         public async Task<List<Post>> GetPostsAsync()
         {

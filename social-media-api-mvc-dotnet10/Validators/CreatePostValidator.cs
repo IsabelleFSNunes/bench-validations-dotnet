@@ -8,22 +8,22 @@ namespace social_media_api_fluentvalidation_dotnet10.Validators
     {
         public CreatePostValidator()
         {
-            int maxCaracteresTitle = 199;
+            int maxTitleLength = 199;
             RuleFor(x => x.Title)
-                .NotEmpty().WithMessage("Titulo é obrigatório")
-                .MaximumLength(maxCaracteresTitle).WithMessage($"Título não pode exceder {maxCaracteresTitle} caracteres");
+                .NotEmpty().WithMessage("The title is required.")
+                .MaximumLength(maxTitleLength).WithMessage($"The title is too long. It must not exceed {maxTitleLength} characters.");
 
             RuleFor(x => x.Body)
-                .NotEmpty().WithMessage("Conteúdo é obrigatório");
+                .NotEmpty().WithMessage("Please provide content for the body.");
 
             RuleFor(x => x.UserId)
-                .InclusiveBetween(1, 100).WithMessage("UserId deve estar entre 1 e 100");
+                .InclusiveBetween(1, 100).WithMessage("UserId must be between 1 and 100.");
 
             RuleFor(x => x.Views)
-                .InclusiveBetween(0, 10000).WithMessage("Views deve estar entre 0 e 10000");
+                .InclusiveBetween(0, 10000).WithMessage("Views must be between 0 and 10,000.");
 
             RuleFor(x => x.Tags)
-                .Must(t => t.Count <= 5).WithMessage("Máximo de 5 tags permitidas");
+                .Must(t => t.Count <= 5).WithMessage("Maximum of 5 tags allowed.");
 
 
         }

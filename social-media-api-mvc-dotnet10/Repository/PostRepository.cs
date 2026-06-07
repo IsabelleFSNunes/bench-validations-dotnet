@@ -2,7 +2,7 @@
 
 namespace social_media_api_fluentvalidation_dotnet10.Repository
 {
-    public class PostRepository
+    public class PostRepository : IPostRepository
     {
         private readonly List<Post> _posts = [];
         private int _nextId = 1;

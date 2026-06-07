@@ -9,17 +9,12 @@ namespace social_media_api_fluentvalidation_dotnet10.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class PostsController(PostServices postService, PostRepository _repository) : ControllerBase
+    public class PostsController(IPostServices postService, IPostRepository repository, IValidator<CreatePostDto> validator) : ControllerBase
     {
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
-        {
-            var posts = await postService.GetPostsAsync();
-            return Ok(posts);
-        }
+
 
         [HttpPost]
-        public IActionResult Create([FromBody] CreatePostDto dto, IValidator<CreatePostDto> validator)
+        public IActionResult Create([FromBody] CreatePostDto dto)
         {
             var result = validator.Validate(dto);
 
@@ -40,9 +35,18 @@ namespace social_media_api_fluentvalidation_dotnet10.Controllers
                 Tags = dto.Tags
             };
 
-            var created = _repository.Add(post);
+            var created = repository.Add(post);
 
             return CreatedAtAction(nameof(GetAll), new { id = created.Id }, created);
         }
+             [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var posts = await postService.GetPostsAsync();
+            return Ok(posts);
+        }
+
     }
-}
+
+}    
+   
