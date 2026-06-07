@@ -1,0 +1,45 @@
+classDiagram
+    direction TB
+
+    class Post {
+        +int Id
+        +string Title
+        +string Body
+        +int UserId
+        +int Views
+        +List~string~ Tags
+    }
+
+    class CreatePostDto {
+        +string Title
+        +string Body
+        +int UserId
+        +int Views
+        +List~string~ Tags
+    }
+
+    class PostRepository {
+        -List~Post~ _posts
+        -int _nextId
+        +GetAll() List~Post~
+        +Add(post Post) Post
+    }
+
+    class PostsController {
+        -PostRepository _repository
+        +GetAll() IActionResult
+        +Create(dto CreatePostDto) IActionResult
+    }
+
+    class ControllerBase {
+        <<abstract>>
+    }
+
+    note for CreatePostDto "Title: Required, MaxLength(199)\nBody: Required\nUserId: Range(1, 100)\nViews: Range(0, 10000)"
+    note for PostsController "ApiController\nRoute: api/posts"
+
+    ControllerBase <|-- PostsController
+    PostsController --> PostRepository : uses
+    PostsController ..> CreatePostDto : receives (HTTP body)
+    PostsController ..> Post : creates
+    PostRepository --> Post : stores

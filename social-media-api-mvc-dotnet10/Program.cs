@@ -9,13 +9,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
-builder.Services.AddHttpClient<PostServices>(client =>
+builder.Services.AddHttpClient<IPostServices, PostServices>(client =>
 {
     client.BaseAddress = new Uri("https://dummyjson.com/");
 });
+builder.Services.AddSingleton<IPostRepository, PostRepository>();
 
 builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-builder.Services.AddSingleton<PostRepository>(); // singleton = persiste em memória
 
 var app = builder.Build();
 

@@ -1,0 +1,6 @@
+@social_media_api_filter_dotnet10_HostAddress = http://localhost:5146
+
+GET {{social_media_api_filter_dotnet10_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

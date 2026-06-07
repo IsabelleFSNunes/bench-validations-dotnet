@@ -1,0 +1,6 @@
+@minimal_api_net10_dataannotation_HostAddress = http://localhost:5049
+
+GET {{minimal_api_net10_dataannotation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
