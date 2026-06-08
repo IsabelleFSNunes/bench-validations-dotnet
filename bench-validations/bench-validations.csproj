@@ -10,5 +10,6 @@
 	<!-- Já podemos aproveitar e instalar o BenchmarkDotNet aqui -->
 	<ItemGroup>
 		<PackageReference Include="BenchmarkDotNet" Version="0.13.12" />
+		<PackageReference Include="FluentValidation" Version="12.1.1" />
 	</ItemGroup>
 </Project>

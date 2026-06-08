@@ -10,7 +10,7 @@ public class ValidationEndpointFilter<T> : IEndpointFilter
         var argument = context.Arguments.OfType<T>().FirstOrDefault();
 
         if (argument is null)
-            return Results.BadRequest("Requisição inválida.");
+            return Results.BadRequest("Invalid request.");
 
         var validationContext = new ValidationContext(argument);
         var validationResults = new List<ValidationResult>();
@@ -21,7 +21,7 @@ public class ValidationEndpointFilter<T> : IEndpointFilter
                 .GroupBy(r => r.MemberNames.FirstOrDefault() ?? string.Empty)
                 .ToDictionary(
                     g => g.Key,
-                    g => g.Select(r => r.ErrorMessage ?? "Inválido").ToArray()
+                    g => g.Select(r => r.ErrorMessage ?? "Invalid.").ToArray()
                 );
             return Results.ValidationProblem(errors);
         }
