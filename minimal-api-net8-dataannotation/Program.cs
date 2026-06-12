@@ -2,8 +2,11 @@ using minimal_api_net8_dataannotations.Features.Posts;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
+}
 
 builder.Services.AddSingleton<PostService>();
 
@@ -20,3 +23,5 @@ app.UseHttpsRedirection();
 app.MapPostEndpoints();
 
 app.Run();
+
+public partial class Program { }

@@ -18,3 +18,5 @@ app.UseHttpsRedirection();
 app.MapPostEndpoints();
 
 app.Run();
+
+public partial class Program { }

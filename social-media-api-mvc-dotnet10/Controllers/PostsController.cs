@@ -12,7 +12,6 @@ namespace social_media_api_fluentvalidation_dotnet10.Controllers
     public class PostsController(IPostServices postService, IPostRepository repository, IValidator<CreatePostDto> validator) : ControllerBase
     {
 
-
         [HttpPost]
         public IActionResult Create([FromBody] CreatePostDto dto)
         {
